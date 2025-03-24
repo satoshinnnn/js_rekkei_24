@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script >
+        // hiện thị menu (1-7)
+        // mời nhập chuỗi --> biến chuỗi thành mảng 
+        // thực hiện từng case
+        let choice;
+        let arr;
+        do {
+            choice = +prompt("Enter the option: 1.Nhập chuỗi, 2.Hiển thị chuỗi, 3.Tính độ dài chuỗi, 4.Đếm số lần xuất hiện của 1 kí tự người dùng nhập, 5.Kiểm tra tính đối xứng của chuỗi, 6.Chuyển chuối thành chữ in hoa ở các chữ đầu của từ, 7.Thoát trương trình");
+            switch (choice) {
+                case 1:
+                    let inputString = prompt("Enter the string");
+                    arr = inputString.split("");
+                    alert("Nhập thành công!")
+                    break;
+                case 2:
+                    console.log(arr);
+                    break;
+                case 3:
+                    console.log(arr.length);
+                    break;
+                case 4:                    
+                    let literal = prompt("Enter a literal");
+                    let isIn = false;
+                    let appear = 0;
+                    for (let i = 0; i < arr.length ; i++) {
+                        if(literal===arr[i]) {
+                            appear++;
+                            isIn = true;
+                        }
+                    }
+                    if (isIn===true) {
+                        console.log("So lan xuat hien cua " + literal + " la " + appear);
+                    } else {
+                        console.log("literal " + literal + " is not in array");
+                    }
+                    break;
+                case 5:
+                    isDoiXung = true;
+                    for (let i = 0; i < Math.floor(arr.length/2); i++) {
+                        if(arr[i]!=arr[arr.length-1-i]) {
+                            isDoiXung = false;
+                            break;
+                        }
+                    }
+                    if (isDoiXung) {
+                        console.log("Mang doi xung");
+                    }
+                    else {
+                        console.log("Mang khong doi xung");
+                    }
+                    break;
+                case 6:
+                    let first = arr[0].toUpperCase();
+                    arr.splice(0,1,first);
+                    for (let i = 1; i<arr.length; i++) {
+                        if (arr[i]===" " && arr[i+1]) {
+                            let UpperCase = arr[i+1].toUpperCase();
+                            arr.splice(i+1,1,UpperCase);
+                        }
+                    }
+                    console.log(arr); 
+                    break;
+            }
+            
+        } while (choice!==7);    
+    </script>
+</body>
+</html>

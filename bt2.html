@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         // hiện thị menu (1-7)
+        // nhập mảng số ngguyên (1)
+        // thực hiện từng case
+        let choice;
+        arr = [];
+        do {
+            choice = +prompt("Enter the option: 1.Nhập mảng, 2.Hiển thị mảng, 3.Tìm các phần tử chẵn lẻ, 4.Tính trung bình cộng của mảng, 5.Xóa phần tử tại vị trí chỉ định, 6.Tìm phần tử lớn thứ 2 trong mảng, 7.Thoát trương trình");
+            switch (choice) {
+                case 1:
+                    let inputArr = +prompt("Enter the element");
+                    arr.push(inputArr);
+                    alert("Nhập thành công!")
+                    break;
+                case 2:
+                    console.log(arr);
+                    break;
+                case 3:
+                    let evens = []
+                    let odds = [];
+                    for (let i = 0; i <arr.length; i++) {
+                        if(arr[i]%2===0) {
+                            evens.push(arr[i]);
+                        }
+                        else {
+                            odds.push(arr[i]);
+                        }
+                    }
+                    console.log("Even " + evens);
+                    console.log("Odd " + odds);
+                    break;
+                case 4:                    
+                    let sum = 0;
+                    for (let i = 0; i < arr.length; i++) {
+                        sum+=arr[i];
+                    }
+                    if (arr.length > 0) {
+                    let average = sum / arr.length;
+                    console.log("Average: " + average);
+                    } else {
+                    console.log("Array is empty! Cannot calculate average.");
+                    }
+                    break;
+                case 5:
+                    let deleteIndex = +prompt("Enter the location of number wanting to be deleted from array");
+                    arr.splice(deleteIndex-1,1);
+                    alert("Xóa thành công!");
+                    break;
+                case 6:
+                    arr.sort((a, b) => a - b);
+                    let max2 = arr[arr.length-2];   
+                    console.log("so lon thu 2: " + max2);
+                    break;
+            }
+        } while (choice!==7);    
+    </script>
+</body>
+</html>
